@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+<div container-fluid>
+<img src="{% static 'images/bann.jpg' %} " alt="" style="height: 400px; width:100%">
+</div>
+<div container-fluid mt-4 style="margin-bottom: 50px;"> 
+    <h5 style="text-align: center;font-family: Georgia, 'Times New Roman', Times, serif;font-weight: bold;">Our Collections</h5>
+    <p>Shopping online allows us to get a sense of the availability of everything, but it costs data. Online shopping is becoming increasingly popular. Customers can buy various goods and services, while sellers can use them to conduct business and transactions online. It is a time-saving and convenient method of shopping.</p>
+    </div> <div class="container mt-2" style="background-color:#ffb6c1; margin-bottom: 100px;">
+    <h5 style="text-align: center;font-weight: bold;font-family: Georgia, 'Times New Roman', Times, serif;text-align:center;">CATEGORIES</h5><br>
+   
+        <div class="row">
+          {% for i in categories %}
+        
+            <div class="col-sm-4" style="margin-bottom: 50px;"><div class="card" style="width: 20rem;" >
+                <img src="{{i.image.url}}" class="card-img-top" height=200px width=100% alt="...">
+                <div class="card-body" >
+                 <h5 class="card-title" style="text-align: center; font-family: Georgia, 'Times New Roman', Times, serif; font-weight: bold;">{{i.name}}</h5>
+                
+                <p class="card-title" style="font-family: 'Times New Roman', Times, serif;">{{i.desc}}</p>
+                <a class="btn btn-danger" href="{% url 'shop:allproducts' i.name %}" style="position: relative;left: 80px;">PRODUCTS</a>
+                </div>
+              </div></div>
+              {% endfor %}
+        </div>
+    </div></div>
+<!-- <h1>home </h1> -->
+{% endblock %}

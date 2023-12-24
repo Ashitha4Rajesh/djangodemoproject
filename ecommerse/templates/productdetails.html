@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+<div class="container mt-5" >
+    
+   
+        <div class="row">
+         
+        
+            <div class="col-6" >
+                <img src="{{p.image.url}}" class="card-img-top " alt="..." width="100%" height="400px"> </div>
+           
+        
+         
+        
+                <div class="col-6 pt-5" style="background-color:#ffb6c1;">
+                 <h5 class="card-title" style="text-align: center; font-family: Georgia, 'Times New Roman', Times, serif; font-weight: bold;">{{p.name}}</h5>
+                 <p class="card-title" style="font-family: 'Times New Roman', Times, serif;text-align: center;">Price:<i class="fa-solid fa-indian-rupee-sign"></i>{{p.price}}</p>
+                 <p class="card-title" style="font-family: 'Times New Roman', Times, serif;text-align: center;">Stock:{{p.stock}}</p>
+                 <p class="card-title" style="font-family: 'Times New Roman', Times, serif;text-align: center;"><u>Product Description:</u>{{p.desc}}</p>
+                 <br>
+                 {% if user.is_superuser == False %}
+                 {% if p.stock <= 0 %}
+                 <h4 style="font-s">Out Of Stock</h4>
+                 {% else %}
+                 <a class="btn btn-danger" href="{% url 'cart:addtocart' p.name %}" style="position: relative;left:280px;">Add To Cart</a>
+                 {% endif %}
+             {% else %}
+             {% if p.stock <= 0 %}
+             <h4>Out Of Stock </h4>
+             <a class="btn btn-danger" href="{% url 'admin:index' %}" style="position: relative;left:280px;">Add  Cart</a>
+             {% else %}
+             <h4>Product In Stock</h4>
+             <a class="btn btn-danger" href="{% url 'admin:index' %}" style="position: relative;left:280px;">Add  Cart</a>
+             {% endif %}
+             {% endif %}
+            </div></div></div>
+{% endblock %}

@@ -1,0 +1,33 @@
+body
+{
+
+    font-family: 'Roboto', sans-serif;
+    font-weight: bold;
+}
+.navbar-light .navbar-nav .nav-link {
+    color: #212529;
+}
+.footer
+{
+    height: 1px;
+    width: 200%;
+    background-color: white;
+    text-align: center;
+    font-weight: bold;
+}
+.dropdown-item {
+
+    color: #212529;
+}
+.btn-outline-success {
+    background-color: hsl(351, 76%, 72%);
+    border-color:hsl(351, 76%, 72%);
+    color:black
+}
+.table>:not(caption)>*>* {
+    padding: .5rem .5rem;
+    background-color: hsl(351, 76%, 72%);
+}
+a {
+    color: hsl(214, 64%, 4%);
+}

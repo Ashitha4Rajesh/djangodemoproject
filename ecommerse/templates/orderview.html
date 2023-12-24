@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+{% extends 'base.html' %}
+    {% load static %}
+    {% block content %}
+    <div class="container mt-2" style="background-color:#ffb6c1; margin-bottom: 100px;">
+                
+               
+        <div class="row">
+        {% for i in o %}
+        
+          <div class="col-sm-4" style="margin-top: 20px; margin-bottom: 20px;"><div class="card" style="width: 20rem;" >
+                <img src="{{i.product1.image.url}}" class="card-img-top height=100px" alt="..." height="300px" width="100%">
+                <div class="card-body">
+                  <p class="card-title" style="font-family: 'Times New Roman', Times, serif;">ProductName:{{i.product1.name}}</p>
+                  <p class="card-title" style="font-family: 'Times New Roman', Times, serif;">Address:{{i.address}}</p>
+                 <p class="card-title" style="font-family: 'Times New Roman', Times, serif;">Phone:{{i.phone}}</p>
+                <p class="card-title" style="font-family: 'Times New Roman', Times, serif;">Price:<i class="fa-solid fa-indian-rupee-sign"></i>{{i.product1.price}}</p>
+                <p class="card-title" style="font-family: 'Times New Roman', Times, serif;">Ordered On:{{i.date_ordered}}</p>
+                <p class="card-title" style="font-family: 'Times New Roman', Times, serif;">Delivery Status:{{i.delivery_status}}</p>
+                </div>
+              
+                </div>
+              </div>
+              {% endfor %}
+            </div>
+                    </div>
+    
+    {% endblock %}

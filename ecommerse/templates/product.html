@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+<div class="container mt-4" style=" margin-bottom: 100px;">
+    
+   
+        <div class="row" style=" margin-top: 50px;">
+         
+        
+            <div class="col-12" >
+                <img src="{{c.image.url}}" class="card-img-top " alt="..." width="100%" height="400px"> </div>
+            </div>
+            <div class="row">
+         
+        
+                <div class="col-12" >
+                 <h5 class="card-title" style="text-align: center; font-family: Georgia, 'Times New Roman', Times, serif; font-weight: bold;">{{c.name}}</h5></div></div>
+                 <div class="row">
+         
+        
+                    <div class="col-12" >
+                <p class="card-title" style="font-family: 'Times New Roman', Times, serif;text-align: center;">{{c.desc}}</p>
+               
+                </div>
+              </div></div>
+              <div class="container mt-2" style="background-color:#ffb6c1; margin-bottom: 100px;">
+                
+               
+                    <div class="row">
+                      {% for i in p %}
+                    
+                      <div class="col-sm-4" style="margin-top: 5px;"><div class="card" style="width: 20rem;" >
+                            <img src="{{i.image.url}}" class="card-img-top height=100px" alt="..." width="100%">
+                            <div class="card-body">
+                             <h5 class="card-title" style="text-align: center; font-family: Georgia, 'Times New Roman', Times, serif; font-weight: bold;">{{i.name}}</h5>
+                            
+                            <p class="card-title" style="font-family: 'Times New Roman', Times, serif;">Price:<i class="fa-solid fa-indian-rupee-sign"></i>{{i.price}}</p>
+                            <a class="btn btn-danger" href="{% url 'shop:productdetails' i.name %}" style="position: relative;left: 80px;">DETAILS</a>
+                          
+                            </div>
+                          </div></div>
+                          {% endfor %}
+                    </div>
+                </div></div>
+       
+{% endblock %}
